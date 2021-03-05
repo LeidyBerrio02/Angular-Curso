@@ -1,0 +1,27 @@
+<h1>Hola desde heroe</h1>
+<h2>{{nombre}}</h2>
+
+<dl>
+
+    <td>Nombre:</td>
+    <dd>{{nombre}}</dd>
+
+    <td>Edad</td>
+    <dd>{{edad}}</dd>
+
+    <td>Funcion (Metodo): </td>
+    <dd>{{obtenerNombre()}}</dd>
+
+    <td>Capitalizado</td>
+    <dd>{{nombre.toUpperCase()}}</dd>
+
+    <td>Nombre Capitalizado desde Angular</td>
+    <dd>{{ nombreCapitalizado }}</dd>
+
+    <td>Nombre en Minuscula desde Angular</td>
+    <dd>{{nombreMinuscula}}</dd>
+
+</dl>
+
+<button (click)="cambiarNombre()">Cambiar Heroe</button>
+<button (click)="cambiarEdad()">Cambiar Edad</button>
