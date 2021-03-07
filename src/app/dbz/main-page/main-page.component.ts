@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment.prod';
-
-interface Personaje{
-  nombre : string;
-  poder : number;
-}
+import { Personaje } from '../interfaces/dbz.interface';
+import { DbzService } from '../services/dbz.service';
 
 
 @Component({
@@ -15,12 +11,17 @@ export class MainPageComponent {
 
   saludoInicial : string = 'Hola desde Angular';
 
-  nuevoPersonaje : Personaje = {
+  /*nuevoPersonaje : Personaje = {
     nombre : '',
     poder: 0
+  }*/
+  nuevoPersonaje : Personaje = {
+    nombre : 'Maestro',
+    poder: 1000
   }
+}
 
-  personajes : Personaje[] = [
+  /*personajes : Personaje[] = [
     {
       nombre: 'Goku',
       poder: 15000
@@ -30,6 +31,20 @@ export class MainPageComponent {
       poder: 8500
     }
   ]
+  //personajes : Personaje[] = [];
+  get personajes():Personaje[]{
+    return this.dbzService.personajes;
+  }
+
+  agregarNuevoPersonaje(persona : Personaje){
+  this.personajes.push(persona);
+  }
+
+constructor (private dbzService: DbzService){
+ // this.personajes = this.dbzService.personajes;
+}
+
+  }
 
     agregar(){
       if(this.nuevoPersonaje.nombre.trim().length === 0){
@@ -49,14 +64,19 @@ export class MainPageComponent {
       console.log(event.target.value);
     }
 
-  }
+  }*/
+
+  /*
 
 
 
-/*
   Manera 1 para que no se refresque la pagina al dar click al boton agregar
     agregar(event: any){
     event.preventDefault();
     console.log("Hola...");
     }
+
+
+
     */
+
